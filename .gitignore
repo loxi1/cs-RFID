@@ -1,0 +1,67 @@
+# Archivos de Visual Studio
+.vs/
+*.user
+*.suo
+*.sln.cache
+*.VC.db
+*.opendb
+
+# Binarios y compilación
+bin/
+obj/
+out/
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.ilk
+*.idb
+*.lib
+*.ncb
+*.sdf
+*.ipch
+*.tlog
+*.cache
+
+# Paquetes y dependencias
+packages/
+node_modules/
+bower_components/
+
+# Configuración y logs
+*.log
+*.tlog
+*.lastcodeanalysissucceeded
+*.DotSettings.user
+*.appxrecipe
+*.wapproj
+
+# Archivos de compilación y dependencias de NuGet
+project.lock.json
+project.assets.json
+nuget.config
+*.nupkg
+*.snupkg
+NuGetBackup/
+NuGetScratch/
+artifacts/
+
+# Archivos de Rider y Resharper
+.idea/
+*.sln.DotSettings.user
+*.ReSharper
+*.rider/
+*.resharper/
+
+# Archivos de configuración de Mac y Linux
+.DS_Store
+*.swp
+*.swo
+Thumbs.db
+
+# Certificados y credenciales
+*.pfx
+*.key
+secrets.json
+# O si solo quieres ignorar configuracion.ini dentro de INI
+INI/configuracion.ini

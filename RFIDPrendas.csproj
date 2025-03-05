@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F02AB887-11CB-4D39-8E1C-5040CBC6C9EE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>RFIDPrendas</RootNamespace>
+    <AssemblyName>RFIDPrendas</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <TargetFrameworkProfile />
+    <PublishUrl>D:\SISTEMAS\Lectora RFID\Lectora RFID\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\RFIDPrendas.xml</DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>rfidsign.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>RFIDPrendas.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>86EB0A7197EFD1868A0D24E967D339E62E1F902A</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>RFIDPrendas_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdoNetCore.AseClient, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\AdoNetCore.AseClient.0.19.2\lib\net46\AdoNetCore.AseClient.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="ExCSS, Version=4.2.3.0, Culture=neutral, PublicKeyToken=bdbe16be9b936b9a, processorArchitecture=MSIL">
+      <HintPath>packages\ExCSS.4.2.3\lib\net48\ExCSS.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Protobuf, Version=3.25.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>packages\Google.Protobuf.3.25.1\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.1.3.5\lib\net462\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.3.5.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Compression.LZ4.Streams.1.3.5\lib\net462\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.8.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>packages\K4os.Hash.xxHash.1.0.8\lib\net462\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.5.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.8.0.0\lib\net462\Microsoft.Extensions.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.FileExtensions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.FileExtensions.8.0.0\lib\net462\Microsoft.Extensions.Configuration.FileExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Ini, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Configuration.Ini.8.0.0\lib\net462\Microsoft.Extensions.Configuration.Ini.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Abstractions, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Abstractions.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileProviders.Physical, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileProviders.Physical.8.0.0\lib\net462\Microsoft.Extensions.FileProviders.Physical.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.FileSystemGlobbing, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.FileSystemGlobbing.8.0.0\lib\net462\Microsoft.Extensions.FileSystemGlobbing.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Extensions.Primitives.8.0.0\lib\net462\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.4.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.8.4.0\lib\net48\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Converters.Wpf, Version=1.8.4.2, Culture=neutral, PublicKeyToken=b532964b8548be77, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Converters.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Core, Version=1.8.4.2, Culture=neutral, PublicKeyToken=7407205e337c98ef, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Css, Version=1.8.4.2, Culture=neutral, PublicKeyToken=7a46e3f532fdb787, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Css.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Dom, Version=1.8.4.2, Culture=neutral, PublicKeyToken=517340b6277b1a7a, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Dom.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Model, Version=1.8.4.2, Culture=neutral, PublicKeyToken=2236cfc76b505845, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Gdi, Version=1.8.4.2, Culture=neutral, PublicKeyToken=03902092284347e3, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Rendering.Gdi.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Rendering.Wpf, Version=1.8.4.2, Culture=neutral, PublicKeyToken=d0902381100df30e, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Rendering.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="SharpVectors.Runtime.Wpf, Version=1.8.4.2, Culture=neutral, PublicKeyToken=d16e717f0a981fb9, processorArchitecture=MSIL">
+      <HintPath>packages\SharpVectors.1.8.4.2\lib\net48\SharpVectors.Runtime.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Svg, Version=3.4.0.0, Culture=neutral, PublicKeyToken=12a0bac221edeae2, processorArchitecture=MSIL">
+      <HintPath>packages\Svg.3.4.7\lib\net472\Svg.dll</HintPath>
+    </Reference>
+    <Reference Include="Sybase.AdoNet4.AseClient, Version=4.157.104.0, Culture=neutral, PublicKeyToken=95d94fac46c88e1e, processorArchitecture=MSIL">
+      <HintPath>packages\WL.Sybase.AdoNet4.AseClient.1.0.0\lib\net46\Sybase.AdoNet4.AseClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Symbol.RFID3.Host, Version=1.2.0.0, Culture=neutral, PublicKeyToken=68ec8db391f150ca, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Zebra RFID FXSeries Host .NET SDK\SDK\Symbol.RFID3.Host.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.ConfigurationManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Configuration.ConfigurationManager.4.4.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.7.0.2\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing.Common, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Drawing.Common.9.0.1\lib\net462\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=5.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Pipelines.5.0.2\lib\net461\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="ZstdSharp, Version=0.7.1.0, Culture=neutral, PublicKeyToken=8d151af33a4ad5cf, processorArchitecture=MSIL">
+      <HintPath>packages\ZstdSharp.Port.0.7.1\lib\net461\ZstdSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlertaError.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AlertaError.Designer.cs">
+      <DependentUpon>AlertaError.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AuditarCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AuditarCaja.Designer.cs">
+      <DependentUpon>AuditarCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BDCaja.cs" />
+    <Compile Include="BDContenedor.cs" />
+    <Compile Include="BDDespacho.cs" />
+    <Compile Include="BDOrdenTallasMov.cs" />
+    <Compile Include="BDHojaMarcacion.cs" />
+    <Compile Include="BDPrenda.cs" />
+    <Compile Include="BDPrendaScm.cs" />
+    <Compile Include="BDTrabajador.cs" />
+    <Compile Include="DataReaderExtensions.cs" />
+    <Compile Include="DBAuditarCaja.cs" />
+    <Compile Include="DBConsultas.cs" />
+    <Compile Include="DBLecturaDeCaja.cs" />
+    <Compile Include="DBLogin.cs" />
+    <Compile Include="DBMatricularCaja.cs" />
+    <Compile Include="DBReportarIncidente.cs" />
+    <Compile Include="DBReporteLecturaCaja.cs" />
+    <Compile Include="DBReprocesar.cs" />
+    <Compile Include="FormAlerta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAlerta.Designer.cs">
+      <DependentUpon>FormAlerta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAntennaConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAntennaConfig.Designer.cs">
+      <DependentUpon>FormAntennaConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAntennaInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAntennaInfo.Designer.cs">
+      <DependentUpon>FormAntennaInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBlockErase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBlockErase.Designer.cs">
+      <DependentUpon>FormBlockErase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCajaRotulada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCajaRotulada.Designer.cs">
+      <DependentUpon>FormCajaRotulada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCajaSimple.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCajaSimple.Designer.cs">
+      <DependentUpon>FormCajaSimple.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCajaVerificar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCajaVerificar.Designer.cs">
+      <DependentUpon>FormCajaVerificar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCajaCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCajaCantidad.Designer.cs">
+      <DependentUpon>FormCajaCantidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCaja.Designer.cs">
+      <DependentUpon>FormCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConfirmacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConfirmacion.Designer.cs">
+      <DependentUpon>FormConfirmacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConnection.Designer.cs">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormConsultas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormConsultas.Designer.cs">
+      <DependentUpon>FormConsultas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDatosConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDatosConfig.Designer.cs">
+      <DependentUpon>FormDatosConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormIncidente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormIncidente.Designer.cs">
+      <DependentUpon>FormIncidente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKill.Designer.cs">
+      <DependentUpon>FormKill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLecturaDeCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLecturaDeCaja.Designer.cs">
+      <DependentUpon>FormLecturaDeCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoading.Designer.cs">
+      <DependentUpon>FormLoading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLock.Designer.cs">
+      <DependentUpon>FormLock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoginPersonal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoginPersonal.Designer.cs">
+      <DependentUpon>FormLoginPersonal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMatHM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMatHM.Designer.cs">
+      <DependentUpon>FormMatHM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMatriculaDeCajaHM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMatriculaDeCajaHM.Designer.cs">
+      <DependentUpon>FormMatriculaDeCajaHM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMiniCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMiniCaja.Designer.cs">
+      <DependentUpon>FormMiniCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNosotros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNosotros.Designer.cs">
+      <DependentUpon>FormNosotros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPerfil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPerfil.Designer.cs">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPOLecturaDeCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPOLecturaDeCaja.Designer.cs">
+      <DependentUpon>FormPOLecturaDeCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrenda.Designer.cs">
+      <DependentUpon>FormPrenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrueba.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrueba.Designer.cs">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRead.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRead.Designer.cs">
+      <DependentUpon>FormRead.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportarIncidente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportarIncidente.Designer.cs">
+      <DependentUpon>FormReportarIncidente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteIncidencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteIncidencia.Designer.cs">
+      <DependentUpon>FormReporteIncidencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteLecturaCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteLecturaCaja.Designer.cs">
+      <DependentUpon>FormReporteLecturaCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportePrendaEnCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportePrendaEnCaja.Designer.cs">
+      <DependentUpon>FormReportePrendaEnCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReportePrendas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReportePrendas.Designer.cs">
+      <DependentUpon>FormReportePrendas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReprocesarLote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReprocesarLote.Designer.cs">
+      <DependentUpon>FormReprocesarLote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRe_porte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRe_porte.Designer.cs">
+      <DependentUpon>FormRe_porte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSalida.Designer.cs">
+      <DependentUpon>FormSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTrabajador.Designer.cs">
+      <DependentUpon>FormTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioMatircula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormularioMatircula.Designer.cs">
+      <DependentUpon>FormularioMatircula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidarSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidarSalida.Designer.cs">
+      <DependentUpon>FormValidarSalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormValidarSalidaCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormValidarSalidaCaja.Designer.cs">
+      <DependentUpon>FormValidarSalidaCaja.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormWrite.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormWrite.Designer.cs">
+      <DependentUpon>FormWrite.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_CajaCantidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_CajaCantidad.Designer.cs">
+      <DependentUpon>Form_CajaCantidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IniFile.cs" />
+    <Compile Include="Login.cs" />
+    <Compile Include="FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginTrabajador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginTrabajador.Designer.cs">
+      <DependentUpon>LoginTrabajador.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mensaje.cs" />
+    <Compile Include="MySQLconexion.cs" />
+    <Compile Include="OtraPruebaMat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OtraPruebaMat.Designer.cs">
+      <DependentUpon>OtraPruebaMat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PruebaMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PruebaMatricula.Designer.cs">
+      <DependentUpon>PruebaMatricula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sybase.cs" />
+    <Compile Include="TransparentTableLayoutPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UCTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCTextBox.Designer.cs">
+      <DependentUpon>UCTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utilitarios.cs" />
+    <EmbeddedResource Include="AlertaError.resx">
+      <DependentUpon>AlertaError.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AuditarCaja.resx">
+      <DependentUpon>AuditarCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAlerta.resx">
+      <DependentUpon>FormAlerta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAntennaConfig.resx">
+      <DependentUpon>FormAntennaConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCajaRotulada.resx">
+      <DependentUpon>FormCajaRotulada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCajaSimple.resx">
+      <DependentUpon>FormCajaSimple.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCajaVerificar.resx">
+      <DependentUpon>FormCajaVerificar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCajaCantidad.resx">
+      <DependentUpon>FormCajaCantidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCaja.resx">
+      <DependentUpon>FormCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConfirmacion.resx">
+      <DependentUpon>FormConfirmacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConnection.resx">
+      <DependentUpon>FormConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormConsultas.resx">
+      <DependentUpon>FormConsultas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDatosConfig.resx">
+      <DependentUpon>FormDatosConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormIncidente.resx">
+      <DependentUpon>FormIncidente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLecturaDeCaja.resx">
+      <DependentUpon>FormLecturaDeCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoginPersonal.resx">
+      <DependentUpon>FormLoginPersonal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMatHM.resx">
+      <DependentUpon>FormMatHM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMatriculaDeCajaHM.resx">
+      <DependentUpon>FormMatriculaDeCajaHM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMiniCaja.resx">
+      <DependentUpon>FormMiniCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPerfil.resx">
+      <DependentUpon>FormPerfil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPOLecturaDeCaja.resx">
+      <DependentUpon>FormPOLecturaDeCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrenda.resx">
+      <DependentUpon>FormPrenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrueba.resx">
+      <DependentUpon>FormPrueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportarIncidente.resx">
+      <DependentUpon>FormReportarIncidente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteIncidencia.resx">
+      <DependentUpon>FormReporteIncidencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteLecturaCaja.resx">
+      <DependentUpon>FormReporteLecturaCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportePrendaEnCaja.resx">
+      <DependentUpon>FormReportePrendaEnCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReportePrendas.resx">
+      <DependentUpon>FormReportePrendas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReprocesarLote.resx">
+      <DependentUpon>FormReprocesarLote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRe_porte.resx">
+      <DependentUpon>FormRe_porte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSalida.resx">
+      <DependentUpon>FormSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrabajador.resx">
+      <DependentUpon>FormTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormularioMatircula.resx">
+      <DependentUpon>FormularioMatircula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidarSalida.resx">
+      <DependentUpon>FormValidarSalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormValidarSalidaCaja.resx">
+      <DependentUpon>FormValidarSalidaCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_CajaCantidad.resx">
+      <DependentUpon>Form_CajaCantidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginTrabajador.resx">
+      <DependentUpon>LoginTrabajador.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OtraPruebaMat.resx">
+      <DependentUpon>OtraPruebaMat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="PruebaMatricula.resx">
+      <DependentUpon>PruebaMatricula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCTextBox.resx">
+      <DependentUpon>UCTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include=".editorconfig" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Scripts\jquery-2.1.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon_admiracion.png" />
+    <Content Include="icon_error.png" />
+    <Content Include="icon_ok.png" />
+    <None Include="Resources\icon_admiracion.png" />
+    <None Include="Resources\icon_ok.png" />
+    <None Include="Resources\icon_error.png" />
+    <None Include="Resources\validar_salida.ico" />
+    <None Include="Resources\caja.ico" />
+    <None Include="Resources\icon_inicial.png" />
+    <None Include="Resources\eliminar_90.png" />
+    <None Include="Resources\salida_embalaje.png" />
+    <None Include="Resources\salida_embalaje_2.png" />
+    <None Include="Resources\return_caja.png" />
+    <None Include="Resources\icon_checking_.png" />
+    <None Include="Resources\icon_error_.png" />
+    <None Include="Resources\icono_checking.svg" />
+    <None Include="Resources\icono_error.svg" />
+    <None Include="Resources\face-recognition.png" />
+    <None Include="Resources\password.png" />
+    <None Include="Resources\clave.png" />
+    <Content Include="RFIDAPI32PC.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="rfidsign.ico" />
+    <Content Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\nugetexample.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
