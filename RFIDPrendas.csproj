@@ -233,9 +233,16 @@
     <Compile Include="DBLecturaDeCaja.cs" />
     <Compile Include="DBLogin.cs" />
     <Compile Include="DBMatricularCaja.cs" />
+    <Compile Include="DBRegistrarIncidencia.cs" />
     <Compile Include="DBReportarIncidente.cs" />
     <Compile Include="DBReporteLecturaCaja.cs" />
     <Compile Include="DBReprocesar.cs" />
+    <Compile Include="FormAccionMatricula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAccionMatricula.Designer.cs">
+      <DependentUpon>FormAccionMatricula.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormAlerta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -500,6 +507,12 @@
     <Compile Include="Form_CajaCantidad.Designer.cs">
       <DependentUpon>Form_CajaCantidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmIncidente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmIncidente.Designer.cs">
+      <DependentUpon>FrmIncidente.cs</DependentUpon>
+    </Compile>
     <Compile Include="IniFile.cs" />
     <Compile Include="Login.cs" />
     <Compile Include="FormMessageBox.cs">
@@ -546,6 +559,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AuditarCaja.resx">
       <DependentUpon>AuditarCaja.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAccionMatricula.resx">
+      <DependentUpon>FormAccionMatricula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormAlerta.resx">
       <DependentUpon>FormAlerta.cs</DependentUpon>
@@ -657,6 +673,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form_CajaCantidad.resx">
       <DependentUpon>Form_CajaCantidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmIncidente.resx">
+      <DependentUpon>FrmIncidente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoginTrabajador.resx">
       <DependentUpon>LoginTrabajador.cs</DependentUpon>

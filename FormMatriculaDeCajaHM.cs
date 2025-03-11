@@ -25,12 +25,14 @@ namespace RFIDPrendas
         public RFIDResults m_Result;
         internal BDHojaMarcacion m_bdHojaMarc;
         //internal ReaderManagement m_ReaderMgmt;
-        //internal READER_TYPE m_ReaderType;        
+        //internal READER_TYPE m_ReaderType;
         internal DBLecturaDeCaja m_DBLecturaDeCaja;
         internal DBMatricularCaja m_DBMatricularCaja;
+        internal DBRegistrarIncidencia m_DBRegistrarIncidencia;
 
         internal string m_Cod_Trabajador = "030658";
         internal string m_cod_Compania = "02";
+        internal string m_incidente = "";
 
         internal Socket m_ListeningSocket = null, m_AcceptedSocket = null;
 
@@ -65,6 +67,7 @@ namespace RFIDPrendas
         private int v_Segundos = 0;
         private Dictionary<int, int> tiempo_cronometro = new Dictionary<int, int>();
         private int v_idMatricula = 0;
+        private long v_idIncidente = 0;
         private string v_nro_hm;
         private string v_nro_op;
 
@@ -709,10 +712,10 @@ namespace RFIDPrendas
 
         private void reset()    // para limpiar los registros
         {
-            this.totalTagValueLabel.Text = "0  (0)";
+            this.totalTagValueLabel.Text = "0";
             m_TagTotalCount = 0;
             //this.inventoryList.Items.Clear();
-            ReportaIncidente.Visible = false;
+            //ReportaIncidente.Visible = false;
             this.m_TagTable.Clear();
         }
 
@@ -1100,7 +1103,7 @@ namespace RFIDPrendas
                         tiempo_cronometro.Clear();
                         totalTagValueLabel.Text = "0";
                         SeConEnSegundos.Text = "";
-                        ReportaIncidente.Visible = false;
+                        //ReportaIncidente.Visible = false;
                         if (m_ReaderAPI.Actions.TagAccess.OperationSequence.Length > 0)
                         {
                             // Before inventory purge all tags
@@ -1224,8 +1227,8 @@ namespace RFIDPrendas
                 timerCronome_tro.Enabled = false;
                 tiempo_cronometro.Clear();
                 //this.RegistrarCantidad();
-                this.MatricularCaja();
-                ReportaIncidente.Visible = true;
+                //this.MatricularCaja();
+                //ReportaIncidente.Visible = true;
                 try
                 {
                     if (m_MainForm.m_IsConnected)
@@ -1267,6 +1270,7 @@ namespace RFIDPrendas
                     m_MainForm.functionCallStatusLabel.Text = ex.Message;
                     Console.WriteLine(ex.Message);
                 }
+                this.FormAMat();
             }
         }
 
@@ -1774,9 +1778,7 @@ namespace RFIDPrendas
 
         private void ReportaIncidente_Click(object sender, EventArgs e)
         {
-            FormIncidente fromIncidente = new FormIncidente(m_Cod_Trabajador, 1);    //Tipo 1(Contar Prendas)
-            fromIncidente.StartPosition = FormStartPosition.CenterParent; // Centrar con respecto al padre
-            fromIncidente.ShowDialog(this);
+            ReportarIncidente();
         }
 
         private void FormMatriculaDeCajaHM_KeyDown(object sender, KeyEventArgs e)
@@ -1855,6 +1857,149 @@ namespace RFIDPrendas
             finally
             {
                 connectionMySql.Dispose(); trans.Dispose();
+            }
+        }
+
+        private void FormAMat()
+        {
+            FormAccionMatricula formAMat = new FormAccionMatricula(this);
+            DialogResult result = formAMat.ShowDialog();
+
+            /*if(result == DialogResult.OK)
+            {
+                Console.WriteLine($"rta-->Ok");
+                this.MatricularCaja();
+            } else if (result == DialogResult.Cancel)
+            {
+                Console.WriteLine($"rta-->Cancel");
+                readButton.PerformClick();
+            } else if(result == DialogResult.None)
+            {
+                Console.WriteLine($"rta-->None");
+                this.RegistraIncidente();
+            } else
+            {
+                Console.WriteLine($"rta-->Otros");
+                this.FormularioInical();
+            }*/
+
+            Console.WriteLine($"op: {formAMat.opcionBtn}");
+
+            switch (formAMat.opcionBtn)
+            {
+                case 1:
+                    this.MatricularCaja();
+                    break;
+                case 2:
+                    readButton.PerformClick();
+                    break;
+                case 3:
+                    this.RegistraIncidente();
+                    this.FormularioInical();
+                    break;
+                case 4:
+                    this.FormularioInical();
+                    break;
+            }
+        }
+
+        private void RegistraIncidente() {
+            FrmIncidente formInci = new FrmIncidente(this);
+            DialogResult result = formInci.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                m_incidente = formInci.incidenteText;
+                RegistrarIncidencia();
+            }
+        }
+        private void ReportarIncidente()
+        {
+            FormIncidente fromIncidente = new FormIncidente(m_Cod_Trabajador, 1);    //Tipo 1(Contar Prendas)
+            fromIncidente.StartPosition = FormStartPosition.CenterParent; // Centrar con respecto al padre
+            fromIncidente.ShowDialog(this);
+        }
+
+        private void RegistrarIncidencia()
+        {
+            // ✅ Obtener `rfidList` directamente de `m_TagTable`
+            List<string> rfidList = new List<string>();
+
+            lock (m_TagTable.SyncRoot)
+            {
+                rfidList = m_TagTable.Keys.Cast<string>().ToList();
+            }
+            Boolean elEstado = false;
+            /*List<string> rfidList = new List<string>
+            {
+                "3BD00000254F2ECEBC5AD5BF","3BD00000254F2EEEBC5AD03C","3BD00000254F2ECEBC5AD5BD","3BD00000254F2EFEBC5ACC32","3BD00000254F2EC2BC5AD372","3BD00000254F2EC2BC5AD374","3BD00000254F2EC2BC5AD373","3BD00000254F2EC2BC5AD371","3BD00000254F2EEEBC5AD032","3BD00000254F2EEEBC5AD03B","3BD00000254F2EFEBC5ACC30","3BD00000254F2EFEBC5ACC31","3BD00000254F2EC2BC5AD370"
+            };
+            foreach (string rfid in rfidList)
+            {
+                Console.WriteLine($"RFID: {rfid}");
+            }*/
+            // Validar que hay datos en la lista
+            if (rfidList.Count == 0)
+            {
+                Console.WriteLine("❌ No se detectaron etiquetas RFID.");
+                AlertaError("❌ No hay etiquetas RFID");
+                return;
+            }
+
+            v_idIncidente = 0;
+
+            MySqlTransaction trans = null;
+
+            try
+            {
+                if (!int.TryParse(totalTagValueLabel.Text, out int cantidadEtiquetas))
+                {
+                    //Console.WriteLine("❌ La cantidad de etiquetas no es un número válido.");
+                    AlertaError("❌ La cantidad de etiquetas no es un número válido.");
+                    return;
+                }
+
+                if (m_DBRegistrarIncidencia == null)
+                {
+                    m_DBRegistrarIncidencia = new DBRegistrarIncidencia();
+                }
+
+                //Console.WriteLine($"✅ Trabajador: {m_Cod_Trabajador}, Cantidad: {cantidadEtiquetas}, RFID List: {string.Join(",", rfidList)}");
+
+                using (var connectionMySql = m_DBRegistrarIncidencia.Connect())
+                {
+                    using (trans = connectionMySql.BeginTransaction())
+                    {
+                        //Console.WriteLine($"Entrar -->aqui<--");
+                        var ll_return = m_DBRegistrarIncidencia.Validar_existe_caja(rfidList, connectionMySql, trans);
+                        Console.WriteLine($"🔎 IdMatricula: {ll_return.Idincidenterfid}, Mensaje: {ll_return.Message}, OP: {ll_return.OP}, HojaMarcacion: {ll_return.HojaMarcacion}, status: {ll_return.Status}");
+
+                        elEstado = ll_return.Status;
+                        if (elEstado)
+                        {
+                            v_idIncidente = ll_return.Idincidenterfid;
+                            var ll_return_ = m_DBRegistrarIncidencia.Updateincidenterfid(v_idIncidente, m_incidente, connectionMySql, trans);
+                            trans.Commit(); // ✅ Committing antes de salir
+                        }
+                    }
+                }
+
+                // ✅ Solo se ejecuta si la caja no existe
+                var result = m_DBRegistrarIncidencia.incidenterfidrCajaOP(m_Cod_Trabajador, cantidadEtiquetas, m_incidente, rfidList);
+
+                //Console.WriteLine($"✅ Resultado: {result.Status}, Mensaje: {result.Message}, ID: {result.IdMatricula}, OP: {result.OP}, Hoja Marcación: {result.HojaMarcacion}");
+
+                int status = result.Status;
+
+                if (result.Status <= 0)
+                {
+                    AlertaError("❌ Error al matricular la caja.");
+                    Console.WriteLine("❌ Error al matricular la caja.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"🛑 Error en RegistrarIncidencia: {ex.Message}");
             }
         }
     }
